@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'TSNetwork' target in the 'TSNetwork' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

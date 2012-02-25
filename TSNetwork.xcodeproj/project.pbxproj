@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F63D776214F95CDA0012CF63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63D776114F95CDA0012CF63 /* Foundation.framework */; };
+		F63D776814F95CDA0012CF63 /* TSNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F63D776714F95CDA0012CF63 /* TSNetwork.m */; };
+		F63D777014F95CDA0012CF63 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63D776F14F95CDA0012CF63 /* SenTestingKit.framework */; };
+		F63D777214F95CDA0012CF63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63D777114F95CDA0012CF63 /* UIKit.framework */; };
+		F63D777314F95CDA0012CF63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63D776114F95CDA0012CF63 /* Foundation.framework */; };
+		F63D777614F95CDA0012CF63 /* libTSNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F63D775E14F95CDA0012CF63 /* libTSNetwork.a */; };
+		F63D777C14F95CDA0012CF63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F63D777A14F95CDA0012CF63 /* InfoPlist.strings */; };
+		F63D777F14F95CDA0012CF63 /* TSNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F63D777E14F95CDA0012CF63 /* TSNetworkTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F63D777414F95CDA0012CF63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F63D775514F95CD90012CF63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F63D775D14F95CDA0012CF63;
+			remoteInfo = TSNetwork;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F63D775E14F95CDA0012CF63 /* libTSNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTSNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F63D776114F95CDA0012CF63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F63D776514F95CDA0012CF63 /* TSNetwork-Prefix.pch */ = {isa = PBXFileReference; path = "TSNetwork-Prefix.pch"; sourceTree = "<group>"; };
+		F63D776614F95CDA0012CF63 /* TSNetwork.h */ = {isa = PBXFileReference; path = TSNetwork.h; sourceTree = "<group>"; };
+		F63D776714F95CDA0012CF63 /* TSNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSNetwork.m; sourceTree = "<group>"; };
+		F63D776E14F95CDA0012CF63 /* TSNetworkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSNetworkTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F63D776F14F95CDA0012CF63 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		F63D777114F95CDA0012CF63 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		F63D777914F95CDA0012CF63 /* TSNetworkTests-Info.plist */ = {isa = PBXFileReference; path = "TSNetworkTests-Info.plist"; sourceTree = "<group>"; };
+		F63D777B14F95CDA0012CF63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F63D777D14F95CDA0012CF63 /* TSNetworkTests.h */ = {isa = PBXFileReference; path = TSNetworkTests.h; sourceTree = "<group>"; };
+		F63D777E14F95CDA0012CF63 /* TSNetworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSNetworkTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F63D775B14F95CDA0012CF63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F63D776214F95CDA0012CF63 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F63D776A14F95CDA0012CF63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F63D777014F95CDA0012CF63 /* SenTestingKit.framework in Frameworks */,
+				F63D777214F95CDA0012CF63 /* UIKit.framework in Frameworks */,
+				F63D777314F95CDA0012CF63 /* Foundation.framework in Frameworks */,
+				F63D777614F95CDA0012CF63 /* libTSNetwork.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F63D775314F95CD90012CF63 = {
+			isa = PBXGroup;
+			children = (
+				F63D776314F95CDA0012CF63 /* TSNetwork */,
+				F63D777714F95CDA0012CF63 /* TSNetworkTests */,
+				F63D776014F95CDA0012CF63 /* Frameworks */,
+				F63D775F14F95CDA0012CF63 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F63D775F14F95CDA0012CF63 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F63D775E14F95CDA0012CF63 /* libTSNetwork.a */,
+				F63D776E14F95CDA0012CF63 /* TSNetworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F63D776014F95CDA0012CF63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F63D776114F95CDA0012CF63 /* Foundation.framework */,
+				F63D776F14F95CDA0012CF63 /* SenTestingKit.framework */,
+				F63D777114F95CDA0012CF63 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F63D776314F95CDA0012CF63 /* TSNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				F63D776614F95CDA0012CF63 /* TSNetwork.h */,
+				F63D776714F95CDA0012CF63 /* TSNetwork.m */,
+				F63D776414F95CDA0012CF63 /* Supporting Files */,
+			);
+			path = TSNetwork;
+			sourceTree = "<group>";
+		};
+		F63D776414F95CDA0012CF63 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F63D776514F95CDA0012CF63 /* TSNetwork-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F63D777714F95CDA0012CF63 /* TSNetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				F63D777D14F95CDA0012CF63 /* TSNetworkTests.h */,
+				F63D777E14F95CDA0012CF63 /* TSNetworkTests.m */,
+				F63D777814F95CDA0012CF63 /* Supporting Files */,
+			);
+			path = TSNetworkTests;
+			sourceTree = "<group>";
+		};
+		F63D777814F95CDA0012CF63 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F63D777914F95CDA0012CF63 /* TSNetworkTests-Info.plist */,
+				F63D777A14F95CDA0012CF63 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F63D775C14F95CDA0012CF63 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		F63D775D14F95CDA0012CF63 /* TSNetwork */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F63D778214F95CDA0012CF63 /* Build configuration list for PBXNativeTarget "TSNetwork" */;
+			buildPhases = (
+				F63D775A14F95CDA0012CF63 /* Sources */,
+				F63D775B14F95CDA0012CF63 /* Frameworks */,
+				F63D775C14F95CDA0012CF63 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TSNetwork;
+			productName = TSNetwork;
+			productReference = F63D775E14F95CDA0012CF63 /* libTSNetwork.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F63D776D14F95CDA0012CF63 /* TSNetworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F63D778514F95CDA0012CF63 /* Build configuration list for PBXNativeTarget "TSNetworkTests" */;
+			buildPhases = (
+				F63D776914F95CDA0012CF63 /* Sources */,
+				F63D776A14F95CDA0012CF63 /* Frameworks */,
+				F63D776B14F95CDA0012CF63 /* Resources */,
+				F63D776C14F95CDA0012CF63 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F63D777514F95CDA0012CF63 /* PBXTargetDependency */,
+			);
+			name = TSNetworkTests;
+			productName = TSNetworkTests;
+			productReference = F63D776E14F95CDA0012CF63 /* TSNetworkTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F63D775514F95CD90012CF63 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Dream Inspiration";
+			};
+			buildConfigurationList = F63D775814F95CD90012CF63 /* Build configuration list for PBXProject "TSNetwork" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F63D775314F95CD90012CF63;
+			productRefGroup = F63D775F14F95CDA0012CF63 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F63D775D14F95CDA0012CF63 /* TSNetwork */,
+				F63D776D14F95CDA0012CF63 /* TSNetworkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F63D776B14F95CDA0012CF63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F63D777C14F95CDA0012CF63 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F63D776C14F95CDA0012CF63 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F63D775A14F95CDA0012CF63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F63D776814F95CDA0012CF63 /* TSNetwork.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F63D776914F95CDA0012CF63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F63D777F14F95CDA0012CF63 /* TSNetworkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F63D777514F95CDA0012CF63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F63D775D14F95CDA0012CF63 /* TSNetwork */;
+			targetProxy = F63D777414F95CDA0012CF63 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F63D777A14F95CDA0012CF63 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F63D777B14F95CDA0012CF63 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F63D778014F95CDA0012CF63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F63D778114F95CDA0012CF63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F63D778314F95CDA0012CF63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/TSNetwork.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TSNetwork/TSNetwork-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F63D778414F95CDA0012CF63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/TSNetwork.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TSNetwork/TSNetwork-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F63D778614F95CDA0012CF63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TSNetwork/TSNetwork-Prefix.pch";
+				INFOPLIST_FILE = "TSNetworkTests/TSNetworkTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		F63D778714F95CDA0012CF63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TSNetwork/TSNetwork-Prefix.pch";
+				INFOPLIST_FILE = "TSNetworkTests/TSNetworkTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F63D775814F95CD90012CF63 /* Build configuration list for PBXProject "TSNetwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F63D778014F95CDA0012CF63 /* Debug */,
+				F63D778114F95CDA0012CF63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F63D778214F95CDA0012CF63 /* Build configuration list for PBXNativeTarget "TSNetwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F63D778314F95CDA0012CF63 /* Debug */,
+				F63D778414F95CDA0012CF63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F63D778514F95CDA0012CF63 /* Build configuration list for PBXNativeTarget "TSNetworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F63D778614F95CDA0012CF63 /* Debug */,
+				F63D778714F95CDA0012CF63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F63D775514F95CD90012CF63 /* Project object */;
+}
