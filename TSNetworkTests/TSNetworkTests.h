@@ -7,6 +7,8 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import <Foundation/Foundation.h>
+#import "TSNetwork.h"
 
 @interface TSNetworkTests : SenTestCase
 

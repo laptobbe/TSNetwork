@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F61A36A814FACB3A001870B6 /* TSJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = F61A36A614FACB3A001870B6 /* TSJSON.h */; };
+		F61A36A914FACB3A001870B6 /* TSJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A36A714FACB3A001870B6 /* TSJSON.m */; };
 		F63D776214F95CDA0012CF63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63D776114F95CDA0012CF63 /* Foundation.framework */; };
 		F63D776814F95CDA0012CF63 /* TSNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F63D776714F95CDA0012CF63 /* TSNetwork.m */; };
 		F63D777014F95CDA0012CF63 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63D776F14F95CDA0012CF63 /* SenTestingKit.framework */; };
@@ -28,17 +30,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F61A36A614FACB3A001870B6 /* TSJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSJSON.h; sourceTree = "<group>"; };
+		F61A36A714FACB3A001870B6 /* TSJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSJSON.m; sourceTree = "<group>"; };
 		F63D775E14F95CDA0012CF63 /* libTSNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTSNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F63D776114F95CDA0012CF63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		F63D776514F95CDA0012CF63 /* TSNetwork-Prefix.pch */ = {isa = PBXFileReference; path = "TSNetwork-Prefix.pch"; sourceTree = "<group>"; };
-		F63D776614F95CDA0012CF63 /* TSNetwork.h */ = {isa = PBXFileReference; path = TSNetwork.h; sourceTree = "<group>"; };
+		F63D776514F95CDA0012CF63 /* TSNetwork-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSNetwork-Prefix.pch"; sourceTree = "<group>"; };
+		F63D776614F95CDA0012CF63 /* TSNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSNetwork.h; sourceTree = "<group>"; };
 		F63D776714F95CDA0012CF63 /* TSNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSNetwork.m; sourceTree = "<group>"; };
 		F63D776E14F95CDA0012CF63 /* TSNetworkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSNetworkTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F63D776F14F95CDA0012CF63 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		F63D777114F95CDA0012CF63 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		F63D777914F95CDA0012CF63 /* TSNetworkTests-Info.plist */ = {isa = PBXFileReference; path = "TSNetworkTests-Info.plist"; sourceTree = "<group>"; };
+		F63D777914F95CDA0012CF63 /* TSNetworkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TSNetworkTests-Info.plist"; sourceTree = "<group>"; };
 		F63D777B14F95CDA0012CF63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F63D777D14F95CDA0012CF63 /* TSNetworkTests.h */ = {isa = PBXFileReference; path = TSNetworkTests.h; sourceTree = "<group>"; };
+		F63D777D14F95CDA0012CF63 /* TSNetworkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSNetworkTests.h; sourceTree = "<group>"; };
 		F63D777E14F95CDA0012CF63 /* TSNetworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSNetworkTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +101,8 @@
 		F63D776314F95CDA0012CF63 /* TSNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				F61A36A614FACB3A001870B6 /* TSJSON.h */,
+				F61A36A714FACB3A001870B6 /* TSJSON.m */,
 				F63D776614F95CDA0012CF63 /* TSNetwork.h */,
 				F63D776714F95CDA0012CF63 /* TSNetwork.m */,
 				F63D776414F95CDA0012CF63 /* Supporting Files */,
@@ -138,6 +144,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F61A36A814FACB3A001870B6 /* TSJSON.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F63D776814F95CDA0012CF63 /* TSNetwork.m in Sources */,
+				F61A36A914FACB3A001870B6 /* TSJSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +396,7 @@
 				F63D778414F95CDA0012CF63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F63D778514F95CDA0012CF63 /* Build configuration list for PBXNativeTarget "TSNetworkTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +405,7 @@
 				F63D778714F95CDA0012CF63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -23,10 +23,24 @@
     
     [super tearDown];
 }
-
+- (void)testBasicPost{
+    
+}
+- (void)testBasicGet{
+    NSURL *url = [NSURL URLWithString:@"http://www.google.se/"];
+    [TSNetwork getURL:url withCompleteBlock:^(NSURLResponse *response, NSString *body, NSError *error, NSMutableURLRequest *request) {
+        STAssertNil(error, @"There was an error");
+    }];
+    
+    NSDate *loopUntil = [NSDate dateWithTimeIntervalSinceNow:10];
+    while ([loopUntil timeIntervalSinceNow] > 0) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:loopUntil];
+    }
+}
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in TSNetworkTests");
+    //STFail(@"Unit tests are not implemented yet in TSNetworkTests");
 }
 
 @end
