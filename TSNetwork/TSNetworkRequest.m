@@ -30,9 +30,13 @@
 @synthesize headers = _headers;
 @synthesize queue = _queue;
 @synthesize data = _data;
+@synthesize dataStream = _dataStream;
 @synthesize method = _method;
 @synthesize url = _url;
 @synthesize urlRequest = _urlRequest;
+@synthesize networkServiceType = _networkServiceType;
+@synthesize shouldHandleCookies = _shouldHandleCookies;
+@synthesize shouldUsePipelining = _shouldUsePipelining;
 
 - (id)init
 {
@@ -42,12 +46,32 @@
     }
     return self;
 }
+- (void)setData:(NSData *)data{
+    if(_data)
+        [_data release];
+    if (_dataStream) {
+        [_dataStream release];
+    }
+    _data = [data retain];
+}
+- (void)setDataStream:(NSInputStream *)dataStream{
+    if(_dataStream)
+        [_dataStream release];
+    if(_data)
+        [_data release];
+    _dataStream = [dataStream retain];
+}
 - (void)dealloc
 {
+    
     [_headers release];
     [_contentType release];
     [_method release];
     [_url release];
+    if(_dataStream)
+        [_dataStream release];
+    if (_data) 
+        [_data release];
     if(_urlRequest)
         [_urlRequest release];
     
@@ -57,6 +81,22 @@
     self.cachePolicy = NSURLRequestUseProtocolCachePolicy;
     self.timeoutInterval = 30.0;
     self.headers = [NSMutableDictionary dictionaryWithObject:@"TSNetwork" forKey:@"User-Agent"];
+    self.networkServiceType = NSURLNetworkServiceTypeDefault;
+    self.shouldHandleCookies = YES;
+    self.shouldUsePipelining = NO;
+}
+
+- (TSNetworkRequest *)networkServiceType:(NSURLRequestNetworkServiceType)serviceType{
+    self.networkServiceType = serviceType;
+    return self;
+}
+- (TSNetworkRequest *)shouldHandleCookies:(BOOL)should{
+    self.shouldHandleCookies = should;
+    return self;
+}
+- (TSNetworkRequest *)shouldUsePiplining:(BOOL)should{
+    self.shouldUsePipelining = should;
+    return self;
 }
 - (TSNetworkRequest *)cachePolicy:(NSURLRequestCachePolicy)cachePolicy{
     self.cachePolicy = cachePolicy;
@@ -95,10 +135,14 @@
                                 cachePolicy:self.cachePolicy 
                                 timeoutInterval:self.timeoutInterval] autorelease];
     [self.urlRequest setHTTPMethod:self.method];
+    [self.urlRequest setNetworkServiceType:self.networkServiceType];
+    [self.urlRequest setHTTPShouldHandleCookies:self.shouldHandleCookies];
+    [self.urlRequest setHTTPShouldUsePipelining:self.shouldUsePipelining];
     
     if(self.data)
         [self.urlRequest setHTTPBody:self.data];
-
+    if(self.dataStream)
+        [self.urlRequest setHTTPBodyStream:self.dataStream];
     if(self.contentType)
         [self.urlRequest setValue:self.contentType forHTTPHeaderField:@"Content-Type"];
     

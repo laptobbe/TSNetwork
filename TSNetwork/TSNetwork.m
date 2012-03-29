@@ -64,6 +64,14 @@
     req.queue = self.workerQueue;
     return [req autorelease];
 }
+-(TSNetworkRequest *)postURL:(NSURL *)url dataStream:(NSInputStream *)inputStream{
+    TSNetworkRequest *req = [[TSNetworkRequest alloc] init];
+    req.method = @"POST";
+    req.url = url;
+    req.dataStream = inputStream;
+    req.queue = self.workerQueue;
+    return [req autorelease];
+}
 
 - (TSNetworkRequest *)putURL:(NSURL *)url{
     return [self putURL:url data:nil];
@@ -74,6 +82,14 @@
     req.method = @"PUT";
     req.url = url;
     req.data = data;
+    req.queue = self.workerQueue;
+    return [req autorelease];
+}
+-(TSNetworkRequest *)putURL:(NSURL *)url dataStream:(NSInputStream *)inputSteam{
+    TSNetworkRequest *req = [[TSNetworkRequest alloc] init];
+    req.method = @"PUT";
+    req.url = url;
+    req.dataStream = inputSteam;
     req.queue = self.workerQueue;
     return [req autorelease];
 }

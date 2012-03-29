@@ -29,12 +29,17 @@
 
 - (TSNetworkRequest *)getURL:(NSURL *)url;
 
+- (TSNetworkRequest *)deleteURL:(NSURL *)url;
+
 - (TSNetworkRequest *)postURL:(NSURL *)url ;
 - (TSNetworkRequest *)postURL:(NSURL *)url data:(NSData *)data;
+- (TSNetworkRequest *)postURL:(NSURL *)url dataStream:(NSInputStream *)inputStream;
 
 - (TSNetworkRequest *)putURL:(NSURL *)url ;
 - (TSNetworkRequest *)putURL:(NSURL *)url data:(NSData *)data;
+- (TSNetworkRequest *)putURL:(NSURL *)url dataStream:(NSInputStream *)inputSteam;
 
-- (TSNetworkRequest *)deleteURL:(NSURL *)url;
+
+
 
 @end

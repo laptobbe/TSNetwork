@@ -30,13 +30,20 @@ typedef void(^CompleteBlock)(NSHTTPURLResponse* response, NSString *body, NSErro
 
 @property (assign) NSURLRequestCachePolicy cachePolicy;
 @property (assign) NSTimeInterval timeoutInterval;
+@property (assign) NSURLRequestNetworkServiceType networkServiceType;
+@property (assign) BOOL shouldHandleCookies;
+@property (assign) BOOL shouldUsePipelining;
 @property (nonatomic, copy) NSString *method;
-@property (nonatomic, copy) NSMutableDictionary *headers;
 @property (nonatomic, copy) NSString *contentType;
-@property (nonatomic, copy) NSData *data;
 @property (nonatomic, copy) NSURL *url;
+@property (nonatomic, copy) NSMutableDictionary *headers;
+@property (nonatomic, retain) NSData *data;
+@property (nonatomic, retain) NSInputStream *dataStream;
 @property (nonatomic, retain) NSMutableURLRequest *urlRequest;
 
+- (TSNetworkRequest *)networkServiceType:(NSURLRequestNetworkServiceType)serviceType;
+- (TSNetworkRequest *)shouldHandleCookies:(BOOL)should;
+- (TSNetworkRequest *)shouldUsePiplining:(BOOL)should;
 - (TSNetworkRequest *)cachePolicy:(NSURLRequestCachePolicy)cachePolicy;
 - (TSNetworkRequest *)timeoutInterval:(NSTimeInterval)timeInterval;
 - (TSNetworkRequest *)contentType:(NSString *)contentType;
