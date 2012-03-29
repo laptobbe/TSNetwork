@@ -23,7 +23,8 @@
 
 @interface TSNetworkRequest : NSObject
 
-typedef void(^CompleteBlock)(NSURLResponse* response, NSString *body, NSError *error);
+
+typedef void(^CompleteBlock)(NSHTTPURLResponse* response, NSString *body, NSError *error);
 @property (assign) NSOperationQueue* queue;
 
 

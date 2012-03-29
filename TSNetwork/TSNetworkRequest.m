@@ -76,13 +76,15 @@
 }
 - (void)sendRequest:(NSMutableURLRequest *)request completeBlock:(CompleteBlock)block{
     [NSURLConnection sendAsynchronousRequest:request queue:self.queue completionHandler:^(NSURLResponse *response, NSData * data, NSError *error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if (data) {
             NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(CFStringConvertIANACharSetNameToEncoding((CFStringRef)response.textEncodingName));
             NSString *body = [[[NSString alloc] initWithData:data encoding:encoding] autorelease];
-            block(response,body,error);
-        }else {
-            block(response,nil ,error);
             
+            
+            block(httpResponse,body,error);
+        }else {
+            block(httpResponse, nil ,error);
         }
     }];
 }
