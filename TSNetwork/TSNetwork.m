@@ -3,8 +3,21 @@
 //  TSNetwork
 //
 //  Created by Tobias Sundstrand on 2012-02-25.
-//  Copyright (c) 2012 Dream Inspiration. All rights reserved.
+
+//  The software is provided under the MIT licence
+//  Copyright (c) 2012 Tobias Sundstrand
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation 
+//  files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, 
+//  modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software 
+//  is furnished to do so, subject to the following conditions:
+
+//  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE 
+//  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
+//  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TSNetwork.h"
 @interface TSNetwork (privateMethods)
@@ -12,162 +25,65 @@
     + (NSOperationQueue *)workerQueue;
 @end
 @implementation TSNetwork
-static NSOperationQueue *workerQueue;
-+ (NSOperationQueue *)workerQueue{
-    if(!workerQueue){
-        workerQueue = [[NSOperationQueue alloc] init];
-        [workerQueue setName:@"TSNetworkQueue"];
+
+@synthesize workerQueue = _workerQueue;
+
+-(id)init{
+    self = [super init];
+    if (self) {
+        [self setDefaults];
     }
-    return workerQueue;
+    return self;
 }
-/*
- 
- convinience methods
- */
-
-+ (void)retryRequest:(NSMutableURLRequest *)request responseEncoding:(NSStringEncoding)encoding completeBlock:(CompleteBlock)block{
-    [TSNetwork sendRequest:request encoding:encoding completeBlock:block];
+- (void)dealloc
+{
+    [_workerQueue release];
+    [super dealloc];
 }
-
-/*
- Get methods
- 
- 
- */
-+ (void)getURL:(NSURL *)url encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval httpHeaders:(NSDictionary *)headers withCompleteBlock:(CompleteBlock)block{
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:cachePolicy timeoutInterval:timeInterval];
-    [request setHTTPMethod:@"GET"];
-    
-    for (NSString *key in [headers allKeys]) {
-        [request setValue:[headers valueForKey:key] forHTTPHeaderField:key];
-    }
-    [TSNetwork sendRequest:request encoding:encoding completeBlock:block];    
-}
-+ (void)getURL:(NSURL *)url encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval withCompleteBlock:(CompleteBlock)block{
-    NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:@"TSNetwork",@"User-Agent", nil];
-    [TSNetwork getURL:url encoding:encoding cachePolicy:cachePolicy timeoutInterval:timeInterval httpHeaders:headers withCompleteBlock:block];
-}
-+ (void)getURL:(NSURL *)url encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy withCompleteBlock:(CompleteBlock)block{
-    [TSNetwork getURL:url encoding:encoding cachePolicy:cachePolicy timeoutInterval:10.0 withCompleteBlock:block];
+- (void)setDefaults{
+    _workerQueue = [[NSOperationQueue alloc] init];
+    [self.workerQueue setName:@"TSNetworkQueue"];
 }
 
-+ (void)getURL:(NSURL *)url encoding:(NSStringEncoding)encoding withCompleteBlock:(CompleteBlock)block{
-    [TSNetwork getURL:url encoding:encoding cachePolicy:NSURLRequestReturnCacheDataElseLoad withCompleteBlock:block];
-}
-+ (void)getURL:(NSURL *)url withCompleteBlock:(CompleteBlock)block{
-    [TSNetwork getURL:url encoding:NSUTF8StringEncoding withCompleteBlock:block];
-}
-
-/*
- 
- Post methods 
- */
-
-+ (void)postData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval httpHeaders:(NSDictionary *)headers withCompleteBlock:(CompleteBlock)block{
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:cachePolicy timeoutInterval:timeInterval];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:data];
-    
-    [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
-    
-    for (NSString *key in [headers allKeys]) {
-        [request setValue:[headers valueForKey:key] forHTTPHeaderField:key];
-    }
-    
-    [TSNetwork sendRequest:request encoding:encoding completeBlock:block];
-    
-}
-+ (void)postData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval withCompleteBlock:(CompleteBlock)block{
-    NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:@"TSNetwork",@"User-Agent", nil];
-    [TSNetwork postData:data toURL:url contentType:contentType encoding:encoding cachePolicy:cachePolicy timeoutInterval:timeInterval httpHeaders:headers withCompleteBlock:block];
-}
-+ (void)postData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy withCompleteBlock:(CompleteBlock)block{
-    [TSNetwork postData:data toURL:url contentType:contentType encoding:encoding cachePolicy:cachePolicy timeoutInterval:10.0 withCompleteBlock:block];
-}
-+ (void)postData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding withCompleteBlock:(CompleteBlock)block{
-    [TSNetwork postData:data toURL:url contentType:contentType encoding:encoding cachePolicy:NSURLRequestUseProtocolCachePolicy withCompleteBlock:block];
-}
-+ (void)postData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType withCompleteBlock:(CompleteBlock)block{
-    [TSNetwork postData:data toURL:url contentType:contentType encoding:NSUTF8StringEncoding withCompleteBlock:block];
-}
-/*
- 
- Put methods
- */
-
-+ (void)putData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval httpHeaders:(NSDictionary *)headers withCompleteBlock:(CompleteBlock)block{
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:cachePolicy timeoutInterval:timeInterval];
-    [request setHTTPMethod:@"PUT"];
-    [request setHTTPBody:data];
-    
-    [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
-    
-    for (NSString *key in [headers allKeys]) {
-        [request setValue:[headers valueForKey:key] forHTTPHeaderField:key];
-    }
-    
-    [TSNetwork sendRequest:request encoding:encoding completeBlock:block];
-    
-}
-+ (void)putData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval withCompleteBlock:(CompleteBlock)block{
-    NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:@"TSNetwork",@"User-Agent", nil];
-    [TSNetwork putData:data toURL:url contentType:contentType encoding:encoding cachePolicy:cachePolicy timeoutInterval:timeInterval httpHeaders:headers withCompleteBlock:block];
-}
-+ (void)putData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy withCompleteBlock:(CompleteBlock)block{
-    [TSNetwork putData:data toURL:url contentType:contentType encoding:encoding cachePolicy:cachePolicy timeoutInterval:10.0 withCompleteBlock:block];
-}
-+ (void)putData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding withCompleteBlock:(CompleteBlock)block{
-    [TSNetwork putData:data toURL:url contentType:contentType encoding:encoding cachePolicy:NSURLRequestUseProtocolCachePolicy withCompleteBlock:block];
-}
-+ (void)putData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType withCompleteBlock:(CompleteBlock)block{
-    [TSNetwork putData:data toURL:url contentType:contentType encoding:NSUTF8StringEncoding withCompleteBlock:block];
+- (TSNetworkRequest *)getURL:(NSURL *)url{
+    TSNetworkRequest *req = [[TSNetworkRequest alloc] init];
+    req.method = @"GET";
+    req.url = url;
+    req.queue = self.workerQueue;
+    return [req autorelease];
 }
 
-
-/*
- 
- Delete methods
- */
-
-+ (void)delete:(NSURL *)url encoding:(NSStringEncoding)encoding headers:(NSDictionary *)headers cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval completeBlock:(CompleteBlock)block{
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:cachePolicy timeoutInterval:timeInterval];
-    [request setHTTPMethod:@"DELETE"];
-    
-    for (NSString *key in [headers allKeys]) {
-        [request setValue:[headers valueForKey:key] forHTTPHeaderField:key];
-    }
-    
-    [TSNetwork sendRequest:request encoding:encoding completeBlock:block];
+- (TSNetworkRequest *)postURL:(NSURL *)url{
+    return [self postURL:url data:nil];
 }
-+ (void)delete:(NSURL *)url encoding:(NSStringEncoding)encoding headers:(NSDictionary *)headers cachePolicy:(NSURLRequestCachePolicy)cachePolicy completeBlock:(CompleteBlock)block{
-    [TSNetwork delete:url encoding:encoding headers:headers cachePolicy:cachePolicy timeoutInterval:10.0 completeBlock:block];
-    
-}
-+ (void)delete:(NSURL *)url encoding:(NSStringEncoding)encoding headers:(NSDictionary *)headers completeBlock:(CompleteBlock)block{
-    [TSNetwork delete:url encoding:encoding headers:headers cachePolicy:NSURLRequestUseProtocolCachePolicy completeBlock:block];
+- (TSNetworkRequest *)postURL:(NSURL *)url data:(NSData *)data{
+    TSNetworkRequest *req = [[TSNetworkRequest alloc] init];
+    req.method = @"POST";
+    req.url = url;
+    req.data = data;
+    req.queue = self.workerQueue;
+    return [req autorelease];
 }
 
-+ (void)delete:(NSURL *)url encoding:(NSStringEncoding)encoding completeBlock:(CompleteBlock)block{
-    NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:@"TSNetwork",@"User-Agent", nil];
-    [TSNetwork delete:url encoding:encoding headers:headers completeBlock:block];
-}
-+ (void)delete:(NSURL *)url completeBlock:(CompleteBlock)block{
-    [TSNetwork delete:url encoding:NSUTF8StringEncoding completeBlock:block];
-}
-/*
- 
- Helper methods
- */
-
-+ (void)sendRequest:(NSMutableURLRequest *)req encoding:(NSStringEncoding)encoding completeBlock:(CompleteBlock)block{
-    [NSURLConnection sendAsynchronousRequest:req queue:[TSNetwork workerQueue] completionHandler:^(NSURLResponse *response, NSData * data, NSError *error) {
-        NSString *body = [[NSString alloc] initWithData:data encoding:encoding];
-        block(response,body,error,req);
-    }];
+- (TSNetworkRequest *)putURL:(NSURL *)url{
+    return [self putURL:url data:nil];
 }
 
+- (TSNetworkRequest *)putURL:(NSURL *)url data:(NSData *)data{
+    TSNetworkRequest *req = [[TSNetworkRequest alloc] init];
+    req.method = @"PUT";
+    req.url = url;
+    req.data = data;
+    req.queue = self.workerQueue;
+    return [req autorelease];
+}
+
+- (TSNetworkRequest *)deleteURL:(NSURL *)url{
+    TSNetworkRequest *req = [[TSNetworkRequest alloc] init];
+    req.method = @"DELETE";
+    req.url = url;
+    req.queue = self.workerQueue;
+    return [req autorelease];
+}
 
 @end

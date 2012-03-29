@@ -1,6 +1,6 @@
 //
-//  TSNetworkTests.h
-//  TSNetworkTests
+//  TSNetwork.h
+//  TSNetwork
 //
 //  Created by Tobias Sundstrand on 2012-02-25.
 
@@ -19,10 +19,28 @@
 //  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <SenTestingKit/SenTestingKit.h>
 #import <Foundation/Foundation.h>
-#import "TSNetwork.h"
 
-@interface TSNetworkTests : SenTestCase
+@interface TSNetworkRequest : NSObject
+
+typedef void(^CompleteBlock)(NSURLResponse* response, NSString *body, NSError *error);
+@property (assign) NSOperationQueue* queue;
+
+
+@property (assign) NSURLRequestCachePolicy cachePolicy;
+@property (assign) NSTimeInterval timeoutInterval;
+@property (nonatomic, copy) NSString *method;
+@property (nonatomic, copy) NSMutableDictionary *headers;
+@property (nonatomic, copy) NSString *contentType;
+@property (nonatomic, copy) NSData *data;
+@property (nonatomic, copy) NSURL *url;
+@property (nonatomic, retain) NSMutableURLRequest *urlRequest;
+
+- (TSNetworkRequest *)cachePolicy:(NSURLRequestCachePolicy)cachePolicy;
+- (TSNetworkRequest *)timeoutInterval:(NSTimeInterval)timeInterval;
+- (TSNetworkRequest *)contentType:(NSString *)contentType;
+- (TSNetworkRequest *)headers:(NSMutableDictionary*)headers;
+
+- (void)send:(CompleteBlock)block;
 
 @end

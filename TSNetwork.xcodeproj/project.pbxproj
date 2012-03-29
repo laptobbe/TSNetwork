@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F61A36A814FACB3A001870B6 /* TSJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = F61A36A614FACB3A001870B6 /* TSJSON.h */; };
-		F61A36A914FACB3A001870B6 /* TSJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A36A714FACB3A001870B6 /* TSJSON.m */; };
 		F63D776214F95CDA0012CF63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63D776114F95CDA0012CF63 /* Foundation.framework */; };
 		F63D776814F95CDA0012CF63 /* TSNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F63D776714F95CDA0012CF63 /* TSNetwork.m */; };
 		F63D777014F95CDA0012CF63 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63D776F14F95CDA0012CF63 /* SenTestingKit.framework */; };
@@ -17,6 +15,8 @@
 		F63D777614F95CDA0012CF63 /* libTSNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F63D775E14F95CDA0012CF63 /* libTSNetwork.a */; };
 		F63D777C14F95CDA0012CF63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F63D777A14F95CDA0012CF63 /* InfoPlist.strings */; };
 		F63D777F14F95CDA0012CF63 /* TSNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F63D777E14F95CDA0012CF63 /* TSNetworkTests.m */; };
+		F6EC4E1F15232823000700B2 /* TSNetworkRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EC4E1D15232823000700B2 /* TSNetworkRequest.h */; };
+		F6EC4E2015232823000700B2 /* TSNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC4E1E15232823000700B2 /* TSNetworkRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,8 +30,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F61A36A614FACB3A001870B6 /* TSJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSJSON.h; sourceTree = "<group>"; };
-		F61A36A714FACB3A001870B6 /* TSJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSJSON.m; sourceTree = "<group>"; };
 		F63D775E14F95CDA0012CF63 /* libTSNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTSNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F63D776114F95CDA0012CF63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F63D776514F95CDA0012CF63 /* TSNetwork-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSNetwork-Prefix.pch"; sourceTree = "<group>"; };
@@ -44,6 +42,8 @@
 		F63D777B14F95CDA0012CF63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F63D777D14F95CDA0012CF63 /* TSNetworkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSNetworkTests.h; sourceTree = "<group>"; };
 		F63D777E14F95CDA0012CF63 /* TSNetworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSNetworkTests.m; sourceTree = "<group>"; };
+		F6EC4E1D15232823000700B2 /* TSNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSNetworkRequest.h; sourceTree = "<group>"; };
+		F6EC4E1E15232823000700B2 /* TSNetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSNetworkRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +101,10 @@
 		F63D776314F95CDA0012CF63 /* TSNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				F61A36A614FACB3A001870B6 /* TSJSON.h */,
-				F61A36A714FACB3A001870B6 /* TSJSON.m */,
 				F63D776614F95CDA0012CF63 /* TSNetwork.h */,
 				F63D776714F95CDA0012CF63 /* TSNetwork.m */,
+				F6EC4E1D15232823000700B2 /* TSNetworkRequest.h */,
+				F6EC4E1E15232823000700B2 /* TSNetworkRequest.m */,
 				F63D776414F95CDA0012CF63 /* Supporting Files */,
 			);
 			path = TSNetwork;
@@ -144,7 +144,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F61A36A814FACB3A001870B6 /* TSJSON.h in Headers */,
+				F6EC4E1F15232823000700B2 /* TSNetworkRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,8 +193,9 @@
 		F63D775514F95CD90012CF63 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = "Dream Inspiration";
+				CLASSPREFIX = TS;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Computertalk Sweden";
 			};
 			buildConfigurationList = F63D775814F95CD90012CF63 /* Build configuration list for PBXProject "TSNetwork" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -247,7 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F63D776814F95CDA0012CF63 /* TSNetwork.m in Sources */,
-				F61A36A914FACB3A001870B6 /* TSJSON.m in Sources */,
+				F6EC4E2015232823000700B2 /* TSNetworkRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +287,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -310,7 +311,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;

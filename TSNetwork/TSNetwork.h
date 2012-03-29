@@ -3,60 +3,38 @@
 //  TSNetwork
 //
 //  Created by Tobias Sundstrand on 2012-02-25.
-//  Copyright (c) 2012 Dream Inspiration. All rights reserved.
+
+//  The software is provided under the MIT licence
+//  Copyright (c) 2012 Tobias Sundstrand
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation 
+//  files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, 
+//  modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software 
+//  is furnished to do so, subject to the following conditions:
+
+//  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE 
+//  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
+//  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 
 #import <Foundation/Foundation.h>
+#import "TSNetworkRequest.h"
 
 @interface TSNetwork : NSObject
-typedef void(^CompleteBlock)(NSURLResponse* response, NSString *body, NSError *error, NSMutableURLRequest *request);
 
-/*
- 
- Convinience methods
- */
+@property (readonly) NSOperationQueue *workerQueue;
 
-+ (void)retryRequest:(NSMutableURLRequest *)request responseEncoding:(NSStringEncoding)encoding completeBlock:(CompleteBlock)block;
+- (TSNetworkRequest *)getURL:(NSURL *)url;
 
-/*
- 
- Get methods
- */
-+ (void)getURL:(NSURL *)url encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval httpHeaders:(NSDictionary *)headers withCompleteBlock:(CompleteBlock)block;
-+ (void)getURL:(NSURL *)url encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval withCompleteBlock:(CompleteBlock)block;
-+ (void)getURL:(NSURL *)url encoding:(NSStringEncoding)encoding withCompleteBlock:(CompleteBlock)block;
-+ (void)getURL:(NSURL *)url withCompleteBlock:(CompleteBlock)block;
+- (TSNetworkRequest *)postURL:(NSURL *)url ;
+- (TSNetworkRequest *)postURL:(NSURL *)url data:(NSData *)data;
 
-/*
- 
- Post methods
- */
-+ (void)postData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval httpHeaders:(NSDictionary *)headers withCompleteBlock:(CompleteBlock)block;
-+ (void)postData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval withCompleteBlock:(CompleteBlock)block;
-+ (void)postData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy withCompleteBlock:(CompleteBlock)block;
-+ (void)postData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding withCompleteBlock:(CompleteBlock)block;
-+ (void)postData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType withCompleteBlock:(CompleteBlock)block;
+- (TSNetworkRequest *)putURL:(NSURL *)url ;
+- (TSNetworkRequest *)putURL:(NSURL *)url data:(NSData *)data;
 
+- (TSNetworkRequest *)deleteURL:(NSURL *)url;
 
-/*
- 
- Put methods
- */
-
-+ (void)putData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval httpHeaders:(NSDictionary *)headers withCompleteBlock:(CompleteBlock)block;
-+ (void)putData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval withCompleteBlock:(CompleteBlock)block;
-+ (void)putData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding cachePolicy:(NSURLRequestCachePolicy)cachePolicy withCompleteBlock:(CompleteBlock)block;
-+ (void)putData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType encoding:(NSStringEncoding)encoding withCompleteBlock:(CompleteBlock)block;
-+ (void)putData:(NSData *)data toURL:(NSURL *)url contentType:(NSString *)contentType withCompleteBlock:(CompleteBlock)block;
-
-/*
- 
- Delete methods
- */
-
-+ (void)delete:(NSURL *)url encoding:(NSStringEncoding)encoding headers:(NSDictionary *)headers cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeInterval completeBlock:(CompleteBlock)block;
-+ (void)delete:(NSURL *)url encoding:(NSStringEncoding)encoding headers:(NSDictionary *)headers cachePolicy:(NSURLRequestCachePolicy)cachePolicy completeBlock:(CompleteBlock)block;
-+ (void)delete:(NSURL *)url encoding:(NSStringEncoding)encoding headers:(NSDictionary *)headers completeBlock:(CompleteBlock)block;
-+ (void)delete:(NSURL *)url encoding:(NSStringEncoding)encoding completeBlock:(CompleteBlock)block;
-+ (void)delete:(NSURL *)url completeBlock:(CompleteBlock)block;
 @end
