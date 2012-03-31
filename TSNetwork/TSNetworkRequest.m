@@ -2,7 +2,6 @@
 //  TSNetwork.h
 //  TSNetwork
 //
-//  Created by Tobias Sundstrand on 2012-02-25.
 
 //  Created by Tobias Sundstrand on 2012-02-25.
 
@@ -114,26 +113,40 @@
     [self.headers addEntriesFromDictionary:headers];
     return self;
 }
-- (void)sendRequest:(NSMutableURLRequest *)request completeBlock:(CompleteBlock)block{
+
+- (void)sendSync:(CompleteBlock)block{
+    [self parseRequest];
+    [self sendRequestSync:self.urlRequest completeBlock:block];
+}
+- (void)sendAsync:(CompleteBlock)block{
+    [self parseRequest];
+    [self sendRequestAsync:self.urlRequest completeBlock:block];
+}
+
+- (void)sendRequestAsync:(NSMutableURLRequest *)request completeBlock:(CompleteBlock)block{
     [NSURLConnection sendAsynchronousRequest:request queue:self.queue completionHandler:^(NSURLResponse *response, NSData * data, NSError *error) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if (data) {
-            NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(CFStringConvertIANACharSetNameToEncoding((CFStringRef)response.textEncodingName));
-            NSString *body = [[[NSString alloc] initWithData:data encoding:encoding] autorelease];
-            
-            
+            NSString *body = [self parseStringWithData:data textEncoding:response.textEncodingName];
             block(httpResponse,body,error);
         }else {
             block(httpResponse, nil ,error);
         }
     }];
 }
-- (void)send:(CompleteBlock)block{
-    
+- (void)sendRequestSync:(NSMutableURLRequest *)request completeBlock:(CompleteBlock)block{
+    NSHTTPURLResponse *urlResponse;
+    NSError *error;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    NSString *body = [self parseStringWithData:data textEncoding:urlResponse.textEncodingName];
+    block(urlResponse, body, error);
+}
+
+- (void)parseRequest{
     self.urlRequest = [[[NSMutableURLRequest alloc] 
-                                initWithURL:self.url 
-                                cachePolicy:self.cachePolicy 
-                                timeoutInterval:self.timeoutInterval] autorelease];
+                        initWithURL:self.url 
+                        cachePolicy:self.cachePolicy 
+                        timeoutInterval:self.timeoutInterval] autorelease];
     [self.urlRequest setHTTPMethod:self.method];
     [self.urlRequest setNetworkServiceType:self.networkServiceType];
     [self.urlRequest setHTTPShouldHandleCookies:self.shouldHandleCookies];
@@ -149,8 +162,16 @@
     for (NSString *key in [self.headers allKeys]) {
         [self.urlRequest setValue:[self.headers valueForKey:key] forHTTPHeaderField:key];
     }
-    [self sendRequest:self.urlRequest completeBlock:block];
 }
+
+- (NSString *)parseStringWithData:(NSData *)data textEncoding:(NSString *)encoding{
+    NSStringEncoding finalencoding = CFStringConvertEncodingToNSStringEncoding(CFStringConvertIANACharSetNameToEncoding((CFStringRef)encoding));
+    NSString *body = [[[NSString alloc] initWithData:data encoding:finalencoding] autorelease];
+    return body;
+}
+
+
+
 
  
 

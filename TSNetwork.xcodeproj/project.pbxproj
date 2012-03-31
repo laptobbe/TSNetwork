@@ -15,6 +15,18 @@
 		F63D777614F95CDA0012CF63 /* libTSNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F63D775E14F95CDA0012CF63 /* libTSNetwork.a */; };
 		F63D777C14F95CDA0012CF63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F63D777A14F95CDA0012CF63 /* InfoPlist.strings */; };
 		F63D777F14F95CDA0012CF63 /* TSNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F63D777E14F95CDA0012CF63 /* TSNetworkTests.m */; };
+		F65521B315264A510010267F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F65521B215264A510010267F /* Cocoa.framework */; };
+		F65521BD15264A510010267F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F65521BB15264A510010267F /* InfoPlist.strings */; };
+		F65521C815264A510010267F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63D776F14F95CDA0012CF63 /* SenTestingKit.framework */; };
+		F65521C915264A510010267F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F65521B215264A510010267F /* Cocoa.framework */; };
+		F65521CC15264A510010267F /* TSNetworkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F65521B115264A510010267F /* TSNetworkFramework.framework */; };
+		F65521D215264A510010267F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F65521D015264A510010267F /* InfoPlist.strings */; };
+		F65521D515264A510010267F /* TSNetworkFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F65521D415264A510010267F /* TSNetworkFrameworkTests.m */; };
+		F65521E915264ADB0010267F /* TSNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F63D776714F95CDA0012CF63 /* TSNetwork.m */; };
+		F65521EA15264ADF0010267F /* TSNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC4E1E15232823000700B2 /* TSNetworkRequest.m */; };
+		F65521EB15264B030010267F /* TSNetworkRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EC4E1D15232823000700B2 /* TSNetworkRequest.h */; };
+		F65521EC15264B090010267F /* TSNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = F63D776614F95CDA0012CF63 /* TSNetwork.h */; };
+		F65521ED15264B0A0010267F /* TSNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = F63D776614F95CDA0012CF63 /* TSNetwork.h */; };
 		F6EC4E1F15232823000700B2 /* TSNetworkRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EC4E1D15232823000700B2 /* TSNetworkRequest.h */; };
 		F6EC4E2015232823000700B2 /* TSNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC4E1E15232823000700B2 /* TSNetworkRequest.m */; };
 /* End PBXBuildFile section */
@@ -27,14 +39,21 @@
 			remoteGlobalIDString = F63D775D14F95CDA0012CF63;
 			remoteInfo = TSNetwork;
 		};
+		F65521CA15264A510010267F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F63D775514F95CD90012CF63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F65521B015264A510010267F;
+			remoteInfo = TSNetworkFramework;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		F63D775E14F95CDA0012CF63 /* libTSNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTSNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F63D776114F95CDA0012CF63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F63D776514F95CDA0012CF63 /* TSNetwork-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSNetwork-Prefix.pch"; sourceTree = "<group>"; };
-		F63D776614F95CDA0012CF63 /* TSNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSNetwork.h; sourceTree = "<group>"; };
-		F63D776714F95CDA0012CF63 /* TSNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSNetwork.m; sourceTree = "<group>"; };
+		F63D776614F95CDA0012CF63 /* TSNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TSNetwork.h; path = TSNetwork/TSNetwork.h; sourceTree = "<group>"; };
+		F63D776714F95CDA0012CF63 /* TSNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TSNetwork.m; path = TSNetwork/TSNetwork.m; sourceTree = "<group>"; };
 		F63D776E14F95CDA0012CF63 /* TSNetworkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSNetworkTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F63D776F14F95CDA0012CF63 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		F63D777114F95CDA0012CF63 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -42,8 +61,21 @@
 		F63D777B14F95CDA0012CF63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F63D777D14F95CDA0012CF63 /* TSNetworkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSNetworkTests.h; sourceTree = "<group>"; };
 		F63D777E14F95CDA0012CF63 /* TSNetworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSNetworkTests.m; sourceTree = "<group>"; };
-		F6EC4E1D15232823000700B2 /* TSNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSNetworkRequest.h; sourceTree = "<group>"; };
-		F6EC4E1E15232823000700B2 /* TSNetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSNetworkRequest.m; sourceTree = "<group>"; };
+		F65521B115264A510010267F /* TSNetworkFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TSNetworkFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F65521B215264A510010267F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		F65521B515264A510010267F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		F65521B615264A510010267F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F65521B715264A510010267F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F65521BA15264A510010267F /* TSNetworkFramework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TSNetworkFramework-Info.plist"; sourceTree = "<group>"; };
+		F65521BC15264A510010267F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F65521BE15264A510010267F /* TSNetworkFramework-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSNetworkFramework-Prefix.pch"; sourceTree = "<group>"; };
+		F65521C715264A510010267F /* TSNetworkFrameworkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSNetworkFrameworkTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F65521CF15264A510010267F /* TSNetworkFrameworkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TSNetworkFrameworkTests-Info.plist"; sourceTree = "<group>"; };
+		F65521D115264A510010267F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F65521D315264A510010267F /* TSNetworkFrameworkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSNetworkFrameworkTests.h; sourceTree = "<group>"; };
+		F65521D415264A510010267F /* TSNetworkFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSNetworkFrameworkTests.m; sourceTree = "<group>"; };
+		F6EC4E1D15232823000700B2 /* TSNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSNetworkRequest.h; path = TSNetwork/TSNetworkRequest.h; sourceTree = "<group>"; };
+		F6EC4E1E15232823000700B2 /* TSNetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSNetworkRequest.m; path = TSNetwork/TSNetworkRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,14 +98,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F65521AD15264A510010267F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F65521B315264A510010267F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F65521C315264A510010267F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F65521C815264A510010267F /* SenTestingKit.framework in Frameworks */,
+				F65521C915264A510010267F /* Cocoa.framework in Frameworks */,
+				F65521CC15264A510010267F /* TSNetworkFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		F63D775314F95CD90012CF63 = {
 			isa = PBXGroup;
 			children = (
+				F65521EE15264B6C0010267F /* Code */,
 				F63D776314F95CDA0012CF63 /* TSNetwork */,
+				F65521B815264A510010267F /* TSNetworkFramework */,
 				F63D777714F95CDA0012CF63 /* TSNetworkTests */,
+				F65521CD15264A510010267F /* TSNetworkFrameworkTests */,
 				F63D776014F95CDA0012CF63 /* Frameworks */,
 				F63D775F14F95CDA0012CF63 /* Products */,
 			);
@@ -84,6 +137,8 @@
 			children = (
 				F63D775E14F95CDA0012CF63 /* libTSNetwork.a */,
 				F63D776E14F95CDA0012CF63 /* TSNetworkTests.octest */,
+				F65521B115264A510010267F /* TSNetworkFramework.framework */,
+				F65521C715264A510010267F /* TSNetworkFrameworkTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +149,8 @@
 				F63D776114F95CDA0012CF63 /* Foundation.framework */,
 				F63D776F14F95CDA0012CF63 /* SenTestingKit.framework */,
 				F63D777114F95CDA0012CF63 /* UIKit.framework */,
+				F65521B215264A510010267F /* Cocoa.framework */,
+				F65521B415264A510010267F /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -101,10 +158,6 @@
 		F63D776314F95CDA0012CF63 /* TSNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				F63D776614F95CDA0012CF63 /* TSNetwork.h */,
-				F63D776714F95CDA0012CF63 /* TSNetwork.m */,
-				F6EC4E1D15232823000700B2 /* TSNetworkRequest.h */,
-				F6EC4E1E15232823000700B2 /* TSNetworkRequest.m */,
 				F63D776414F95CDA0012CF63 /* Supporting Files */,
 			);
 			path = TSNetwork;
@@ -137,6 +190,64 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F65521B415264A510010267F /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F65521B515264A510010267F /* AppKit.framework */,
+				F65521B615264A510010267F /* CoreData.framework */,
+				F65521B715264A510010267F /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		F65521B815264A510010267F /* TSNetworkFramework */ = {
+			isa = PBXGroup;
+			children = (
+				F65521B915264A510010267F /* Supporting Files */,
+			);
+			path = TSNetworkFramework;
+			sourceTree = "<group>";
+		};
+		F65521B915264A510010267F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F65521BA15264A510010267F /* TSNetworkFramework-Info.plist */,
+				F65521BB15264A510010267F /* InfoPlist.strings */,
+				F65521BE15264A510010267F /* TSNetworkFramework-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F65521CD15264A510010267F /* TSNetworkFrameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				F65521D315264A510010267F /* TSNetworkFrameworkTests.h */,
+				F65521D415264A510010267F /* TSNetworkFrameworkTests.m */,
+				F65521CE15264A510010267F /* Supporting Files */,
+			);
+			path = TSNetworkFrameworkTests;
+			sourceTree = "<group>";
+		};
+		F65521CE15264A510010267F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F65521CF15264A510010267F /* TSNetworkFrameworkTests-Info.plist */,
+				F65521D015264A510010267F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F65521EE15264B6C0010267F /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				F63D776614F95CDA0012CF63 /* TSNetwork.h */,
+				F63D776714F95CDA0012CF63 /* TSNetwork.m */,
+				F6EC4E1D15232823000700B2 /* TSNetworkRequest.h */,
+				F6EC4E1E15232823000700B2 /* TSNetworkRequest.m */,
+			);
+			name = Code;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -145,6 +256,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6EC4E1F15232823000700B2 /* TSNetworkRequest.h in Headers */,
+				F65521EC15264B090010267F /* TSNetwork.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F65521AE15264A510010267F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F65521EB15264B030010267F /* TSNetworkRequest.h in Headers */,
+				F65521ED15264B0A0010267F /* TSNetwork.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +308,43 @@
 			productReference = F63D776E14F95CDA0012CF63 /* TSNetworkTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		F65521B015264A510010267F /* TSNetworkFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F65521DA15264A510010267F /* Build configuration list for PBXNativeTarget "TSNetworkFramework" */;
+			buildPhases = (
+				F65521AC15264A510010267F /* Sources */,
+				F65521AD15264A510010267F /* Frameworks */,
+				F65521AE15264A510010267F /* Headers */,
+				F65521AF15264A510010267F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TSNetworkFramework;
+			productName = TSNetworkFramework;
+			productReference = F65521B115264A510010267F /* TSNetworkFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F65521C615264A510010267F /* TSNetworkFrameworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F65521DB15264A510010267F /* Build configuration list for PBXNativeTarget "TSNetworkFrameworkTests" */;
+			buildPhases = (
+				F65521C215264A510010267F /* Sources */,
+				F65521C315264A510010267F /* Frameworks */,
+				F65521C415264A510010267F /* Resources */,
+				F65521C515264A510010267F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F65521CB15264A510010267F /* PBXTargetDependency */,
+			);
+			name = TSNetworkFrameworkTests;
+			productName = TSNetworkFrameworkTests;
+			productReference = F65521C715264A510010267F /* TSNetworkFrameworkTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -211,6 +369,8 @@
 			targets = (
 				F63D775D14F95CDA0012CF63 /* TSNetwork */,
 				F63D776D14F95CDA0012CF63 /* TSNetworkTests */,
+				F65521B015264A510010267F /* TSNetworkFramework */,
+				F65521C615264A510010267F /* TSNetworkFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -224,10 +384,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F65521AF15264A510010267F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F65521BD15264A510010267F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F65521C415264A510010267F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F65521D215264A510010267F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		F63D776C14F95CDA0012CF63 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		F65521C515264A510010267F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -260,6 +449,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F65521AC15264A510010267F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F65521E915264ADB0010267F /* TSNetwork.m in Sources */,
+				F65521EA15264ADF0010267F /* TSNetworkRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F65521C215264A510010267F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F65521D515264A510010267F /* TSNetworkFrameworkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -268,6 +474,11 @@
 			target = F63D775D14F95CDA0012CF63 /* TSNetwork */;
 			targetProxy = F63D777414F95CDA0012CF63 /* PBXContainerItemProxy */;
 		};
+		F65521CB15264A510010267F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F65521B015264A510010267F /* TSNetworkFramework */;
+			targetProxy = F65521CA15264A510010267F /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -275,6 +486,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				F63D777B14F95CDA0012CF63 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F65521BB15264A510010267F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F65521BC15264A510010267F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F65521D015264A510010267F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F65521D115264A510010267F /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -378,6 +605,94 @@
 			};
 			name = Release;
 		};
+		F65521D615264A510010267F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TSNetworkFramework/TSNetworkFramework-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "TSNetworkFramework/TSNetworkFramework-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		F65521D715264A510010267F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TSNetworkFramework/TSNetworkFramework-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "TSNetworkFramework/TSNetworkFramework-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		F65521D815264A510010267F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TSNetworkFramework/TSNetworkFramework-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "TSNetworkFrameworkTests/TSNetworkFrameworkTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		F65521D915264A510010267F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TSNetworkFramework/TSNetworkFramework-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "TSNetworkFrameworkTests/TSNetworkFrameworkTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -407,6 +722,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		F65521DA15264A510010267F /* Build configuration list for PBXNativeTarget "TSNetworkFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F65521D615264A510010267F /* Debug */,
+				F65521D715264A510010267F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F65521DB15264A510010267F /* Build configuration list for PBXNativeTarget "TSNetworkFrameworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F65521D815264A510010267F /* Debug */,
+				F65521D915264A510010267F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
