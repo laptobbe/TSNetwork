@@ -102,4 +102,22 @@
     return [req autorelease];
 }
 
++ (NSData *)urlEncodedEntityFromDictionary:(NSDictionary *)dictionary{
+    NSMutableData *data = [NSMutableData data];
+    for (int i = 0; i < dictionary.allKeys.count; i++) {
+        if(i==dictionary.allKeys.count-1){
+            NSString *key = [dictionary.allKeys objectAtIndex:i];
+            NSString *value = [dictionary objectForKey:key];
+            NSData *partialData = [[NSString stringWithFormat:@"%@=%@",key,value] dataUsingEncoding:NSUTF8StringEncoding];
+            [data appendData:partialData];
+        }else {
+            NSString *key = [dictionary.allKeys objectAtIndex:i];
+            NSString *value = [dictionary objectForKey:key];
+            NSData *partialData = [[NSString stringWithFormat:@"%@=%@&",key,value] dataUsingEncoding:NSUTF8StringEncoding];
+            [data appendData:partialData];
+        }
+    }
+    return data;
+}
+
 @end

@@ -37,7 +37,7 @@
 - (TSNetworkRequest *)putURL:(NSURL *)url data:(NSData *)data;
 - (TSNetworkRequest *)putURL:(NSURL *)url dataStream:(NSInputStream *)inputSteam;
 
-
++ (NSData *)urlEncodedEntityFromDictionary:(NSDictionary *)dictionary;
 
 
 @end

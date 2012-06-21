@@ -138,4 +138,15 @@
     [self put:http];
     [http release];
 }
+
+- (void)testNSURLEncoded{
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                @"hej", @"hå",
+                                @"dåre", @"mi",
+                                @"fa", @"så", nil];
+    NSData *data = [TSNetwork urlEncodedEntityFromDictionary:dictionary];
+    NSString *string = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    STAssertFalse([string hasSuffix:@"&"],@"wrong ending");
+    
+}
 @end
