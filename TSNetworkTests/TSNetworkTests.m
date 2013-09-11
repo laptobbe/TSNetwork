@@ -46,7 +46,7 @@
     STAssertEqualObjects([req.urlRequest.allHTTPHeaderFields objectForKey:@"User-Agent"], @"TSNetwork", @"User agent wrong");
     STAssertNil(req.urlRequest.HTTPBody, @"Sending data on get");
     STAssertEqualObjects(req.urlRequest.URL, url, @"URL wrong on GET");
-    STAssertEquals(req.urlRequest.timeoutInterval, 30.0,@"Wrong timeout interval on get");
+    STAssertEquals(req.urlRequest.timeoutInterval, 60.0,@"Wrong timeout interval on get");
     STAssertNil([req.urlRequest.allHTTPHeaderFields objectForKey:@"Content-Type"], @"Sending content type on GET");
     if(req.urlRequest.cachePolicy != NSURLRequestUseProtocolCachePolicy)
         STFail(@"wrong cache policy on GET");
@@ -66,7 +66,7 @@
     STAssertEqualObjects([req.urlRequest.allHTTPHeaderFields objectForKey:@"User-Agent"], @"TSNetwork", @"User agent wrong");
     STAssertNotNil(req.urlRequest.HTTPBody , @"not sending data on post");
     STAssertEqualObjects(req.urlRequest.URL, url, @"URL wrong on POST");
-    STAssertEquals(req.urlRequest.timeoutInterval, 240.0, @"Wrong timeout interval on post");
+    STAssertEquals(req.urlRequest.timeoutInterval, 60.0, @"Wrong timeout interval on post");
     STAssertEqualObjects([req.urlRequest.allHTTPHeaderFields objectForKey:@"Content-Type"], @"application/json", @"not setting content type on POST");
     if(req.urlRequest.cachePolicy != NSURLRequestUseProtocolCachePolicy)
         STFail(@"wrong cache policy on POST");
@@ -86,7 +86,7 @@
     STAssertEqualObjects([req.urlRequest.allHTTPHeaderFields objectForKey:@"User-Agent"], @"TSNetwork", @"User agent wrong");
     STAssertNotNil(req.urlRequest.HTTPBody , @"not sending data on PUT");
     STAssertEqualObjects(req.urlRequest.URL, url, @"URL wrong on PUT");
-    STAssertEquals(req.urlRequest.timeoutInterval, 240.0,@"Wrong timeout interval on PUT");
+    STAssertEquals(req.urlRequest.timeoutInterval, 60.0,@"Wrong timeout interval on PUT");
     STAssertEqualObjects([req.urlRequest.allHTTPHeaderFields objectForKey:@"Content-Type"], @"application/json", @"not setting content type on PUT");
     if(req.urlRequest.cachePolicy != NSURLRequestUseProtocolCachePolicy)
         STFail(@"wrong cache policy on PUT");
@@ -103,7 +103,7 @@
     STAssertEqualObjects([req.urlRequest.allHTTPHeaderFields objectForKey:@"User-Agent"], @"TSNetwork", @"User agent wrong");
     STAssertNil(req.urlRequest.HTTPBody, @"Sending data on DELETE");
     STAssertEqualObjects(req.urlRequest.URL, url, @"URL wrong on DELETE");
-    STAssertEquals(req.urlRequest.timeoutInterval, 30.0,@"Wrong timeout interval on DELETE");
+    STAssertEquals(req.urlRequest.timeoutInterval, 60.0,@"Wrong timeout interval on DELETE");
     STAssertNil([req.urlRequest.allHTTPHeaderFields objectForKey:@"Content-Type"], @"Sending content type on DELETE");
     if(req.urlRequest.cachePolicy != NSURLRequestUseProtocolCachePolicy)
         STFail(@"wrong cache policy on DELETE");
