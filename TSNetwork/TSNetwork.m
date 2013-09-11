@@ -20,13 +20,12 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TSNetwork.h"
+
 @interface TSNetwork (privateMethods)
     + (void)sendRequest:(NSMutableURLRequest *)req encoding:(NSStringEncoding)encoding completeBlock:(CompleteBlock)block;
-    + (NSOperationQueue *)workerQueue;
 @end
-@implementation TSNetwork
 
-@synthesize workerQueue = _workerQueue;
+@implementation TSNetwork
 
 -(id)init{
     self = [super init];
@@ -35,14 +34,11 @@
     }
     return self;
 }
-- (void)dealloc
-{
-    [_workerQueue release];
-    [super dealloc];
-}
 - (void)setDefaults{
+    
     _workerQueue = [[NSOperationQueue alloc] init];
     [self.workerQueue setName:@"TSNetworkQueue"];
+    
 }
 
 - (TSNetworkRequest *)getURL:(NSURL *)url{
@@ -50,27 +46,29 @@
     req.method = @"GET";
     req.url = url;
     req.queue = self.workerQueue;
-    return [req autorelease];
+    return req;
 }
 
 - (TSNetworkRequest *)postURL:(NSURL *)url{
     return [self postURL:url data:nil];
 }
+
 - (TSNetworkRequest *)postURL:(NSURL *)url data:(NSData *)data{
     TSNetworkRequest *req = [[TSNetworkRequest alloc] init];
     req.method = @"POST";
     req.url = url;
     req.data = data;
     req.queue = self.workerQueue;
-    return [req autorelease];
+    return req;
 }
+
 -(TSNetworkRequest *)postURL:(NSURL *)url dataStream:(NSInputStream *)inputStream{
     TSNetworkRequest *req = [[TSNetworkRequest alloc] init];
     req.method = @"POST";
     req.url = url;
     req.dataStream = inputStream;
     req.queue = self.workerQueue;
-    return [req autorelease];
+    return req;
 }
 
 - (TSNetworkRequest *)putURL:(NSURL *)url{
@@ -83,7 +81,7 @@
     req.url = url;
     req.data = data;
     req.queue = self.workerQueue;
-    return [req autorelease];
+    return req;
 }
 -(TSNetworkRequest *)putURL:(NSURL *)url dataStream:(NSInputStream *)inputSteam{
     TSNetworkRequest *req = [[TSNetworkRequest alloc] init];
@@ -91,7 +89,7 @@
     req.url = url;
     req.dataStream = inputSteam;
     req.queue = self.workerQueue;
-    return [req autorelease];
+    return req;
 }
 
 - (TSNetworkRequest *)deleteURL:(NSURL *)url{
@@ -99,7 +97,7 @@
     req.method = @"DELETE";
     req.url = url;
     req.queue = self.workerQueue;
-    return [req autorelease];
+    return req;
 }
 
 + (NSData *)urlEncodedEntityFromDictionary:(NSDictionary *)dictionary{

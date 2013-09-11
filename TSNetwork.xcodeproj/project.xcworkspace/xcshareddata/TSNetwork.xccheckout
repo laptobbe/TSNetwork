@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>471594DA-B584-4E8B-B713-7A65438887A8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TSNetwork</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3B93254A-7E8E-418F-9E05-74D278F290C8</key>
+		<string>ssh://github.com/laptobbe/TSNetwork.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TSNetwork.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3B93254A-7E8E-418F-9E05-74D278F290C8</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/laptobbe/TSNetwork.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3B93254A-7E8E-418F-9E05-74D278F290C8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3B93254A-7E8E-418F-9E05-74D278F290C8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TSNetwork</string>
+		</dict>
+	</array>
+</dict>
+</plist>

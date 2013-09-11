@@ -38,7 +38,7 @@
     NSURL *url = [NSURL URLWithString:@"http://www.google.com/"];
     
     TSNetworkRequest *req = [http getURL:url];
-    [req sendAsync:^(NSHTTPURLResponse *response, NSString *body, NSError *error) {
+    [req send:^(NSHTTPURLResponse *response, NSString *body, NSError *error) {
         
     }];
     STAssertNotNil(req.urlRequest, @"no url request object");
@@ -58,7 +58,7 @@
     NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
     
     TSNetworkRequest *req = [[http postURL:url data:data] contentType:@"application/json"];
-    [req sendAsync:^(NSURLResponse *response, NSString *body, NSError *error) {
+    [req send:^(NSURLResponse *response, NSString *body, NSError *error) {
         
     }];
     STAssertNotNil(req.urlRequest, @"no url request object");
@@ -78,7 +78,7 @@
     NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
     
     TSNetworkRequest *req = [[http putURL:url data:data] contentType:@"application/json"];
-    [req sendAsync:^(NSHTTPURLResponse *response, NSString *body, NSError *error) {
+    [req send:^(NSHTTPURLResponse *response, NSString *body, NSError *error) {
         
     }];
     STAssertNotNil(req.urlRequest, @"no url request object");
@@ -95,7 +95,7 @@
     NSURL *url = [NSURL URLWithString:@"http://www.google.com/"];
     
     TSNetworkRequest *req = [http deleteURL:url];
-    [req sendAsync:^(NSHTTPURLResponse *response, NSString *body, NSError *error) {
+    [req send:^(NSHTTPURLResponse *response, NSString *body, NSError *error) {
         
     }];
     STAssertNotNil(req.urlRequest, @"no url request object");

@@ -21,9 +21,9 @@
 
 @interface TSNetworkRequest : NSObject
 
-
 typedef void(^CompleteBlock)(NSHTTPURLResponse* response, NSString *body, NSError *error);
-@property (assign) NSOperationQueue* queue;
+
+@property (weak) NSOperationQueue* queue;
 
 
 @property (assign) NSURLRequestCachePolicy cachePolicy;
@@ -35,9 +35,9 @@ typedef void(^CompleteBlock)(NSHTTPURLResponse* response, NSString *body, NSErro
 @property (nonatomic, copy) NSString *contentType;
 @property (nonatomic, copy) NSURL *url;
 @property (nonatomic, copy) NSMutableDictionary *headers;
-@property (nonatomic, retain) NSData *data;
-@property (nonatomic, retain) NSInputStream *dataStream;
-@property (nonatomic, retain) NSMutableURLRequest *urlRequest;
+@property (nonatomic, strong) NSData *data;
+@property (nonatomic, strong) NSInputStream *dataStream;
+@property (nonatomic, strong) NSMutableURLRequest *urlRequest;
 
 - (TSNetworkRequest *)networkServiceType:(NSURLRequestNetworkServiceType)serviceType;
 - (TSNetworkRequest *)shouldHandleCookies:(BOOL)should;
@@ -47,7 +47,6 @@ typedef void(^CompleteBlock)(NSHTTPURLResponse* response, NSString *body, NSErro
 - (TSNetworkRequest *)contentType:(NSString *)contentType;
 - (TSNetworkRequest *)headers:(NSMutableDictionary*)headers;
 
-- (void)sendSync:(CompleteBlock)block;
-- (void)sendAsync:(CompleteBlock)block;
+- (void)send:(CompleteBlock)block;
 
 @end

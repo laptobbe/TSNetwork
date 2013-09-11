@@ -23,19 +23,6 @@
 #import "TSNetworkRequest.h"
 
 @implementation TSNetworkRequest
-@synthesize cachePolicy = _cachePolicy;
-@synthesize timeoutInterval = _timeoutInterval;
-@synthesize contentType = _contentType;
-@synthesize headers = _headers;
-@synthesize queue = _queue;
-@synthesize data = _data;
-@synthesize dataStream = _dataStream;
-@synthesize method = _method;
-@synthesize url = _url;
-@synthesize urlRequest = _urlRequest;
-@synthesize networkServiceType = _networkServiceType;
-@synthesize shouldHandleCookies = _shouldHandleCookies;
-@synthesize shouldUsePipelining = _shouldUsePipelining;
 
 - (id)init
 {
@@ -45,40 +32,18 @@
     }
     return self;
 }
+
 - (void)setData:(NSData *)data{
-    if(_data)
-        [_data release];
-    if (_dataStream) {
-        [_dataStream release];
-    }
-    _data = [data retain];
+    _data = data;
 }
+
 - (void)setDataStream:(NSInputStream *)dataStream{
-    if(_dataStream)
-        [_dataStream release];
-    if(_data)
-        [_data release];
-    _dataStream = [dataStream retain];
+    _dataStream = dataStream;
 }
-- (void)dealloc
-{
-    
-    [_headers release];
-    [_contentType release];
-    [_method release];
-    [_url release];
-    if(_dataStream)
-        [_dataStream release];
-    if (_data) 
-        [_data release];
-    if(_urlRequest)
-        [_urlRequest release];
-    
-    [super dealloc];
-}
+
 - (void)setDefaults{
     self.cachePolicy = NSURLRequestUseProtocolCachePolicy;
-    self.timeoutInterval = 30.0;
+    self.timeoutInterval = 60.0;
     self.headers = [NSMutableDictionary dictionaryWithObject:@"TSNetwork" forKey:@"User-Agent"];
     self.networkServiceType = NSURLNetworkServiceTypeDefault;
     self.shouldHandleCookies = YES;
@@ -114,16 +79,13 @@
     return self;
 }
 
-- (void)sendSync:(CompleteBlock)block{
-    [self parseRequest];
-    [self sendRequestSync:self.urlRequest completeBlock:block];
-}
-- (void)sendAsync:(CompleteBlock)block{
-    [self parseRequest];
-    [self sendRequestAsync:self.urlRequest completeBlock:block];
+- (void)send:(CompleteBlock)block{
+    NSMutableURLRequest *request = [self createURLRequest];
+    self.urlRequest = request;
+    [self sendRequest:request completeBlock:block];
 }
 
-- (void)sendRequestAsync:(NSMutableURLRequest *)request completeBlock:(CompleteBlock)block{
+- (void)sendRequest:(NSMutableURLRequest *)request completeBlock:(CompleteBlock)block{
     [NSURLConnection sendAsynchronousRequest:request queue:self.queue completionHandler:^(NSURLResponse *response, NSData * data, NSError *error) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if (data) {
@@ -134,39 +96,33 @@
         }
     }];
 }
-- (void)sendRequestSync:(NSMutableURLRequest *)request completeBlock:(CompleteBlock)block{
-    NSHTTPURLResponse *urlResponse;
-    NSError *error;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-    NSString *body = [self parseStringWithData:data textEncoding:urlResponse.textEncodingName];
-    block(urlResponse, body, error);
-}
 
-- (void)parseRequest{
-    self.urlRequest = [[[NSMutableURLRequest alloc] 
-                        initWithURL:self.url 
-                        cachePolicy:self.cachePolicy 
-                        timeoutInterval:self.timeoutInterval] autorelease];
-    [self.urlRequest setHTTPMethod:self.method];
-    [self.urlRequest setNetworkServiceType:self.networkServiceType];
-    [self.urlRequest setHTTPShouldHandleCookies:self.shouldHandleCookies];
-    [self.urlRequest setHTTPShouldUsePipelining:self.shouldUsePipelining];
+- (NSMutableURLRequest *)createURLRequest{
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
+                                    initWithURL:self.url
+                                    cachePolicy:self.cachePolicy
+                                    timeoutInterval:self.timeoutInterval];
+    [request setHTTPMethod:self.method];
+    [request setNetworkServiceType:self.networkServiceType];
+    [request setHTTPShouldHandleCookies:self.shouldHandleCookies];
+    [request setHTTPShouldUsePipelining:self.shouldUsePipelining];
     
     if(self.data)
-        [self.urlRequest setHTTPBody:self.data];
+        [request setHTTPBody:self.data];
     if(self.dataStream)
-        [self.urlRequest setHTTPBodyStream:self.dataStream];
+        [request setHTTPBodyStream:self.dataStream];
     if(self.contentType)
-        [self.urlRequest setValue:self.contentType forHTTPHeaderField:@"Content-Type"];
+        [request setValue:self.contentType forHTTPHeaderField:@"Content-Type"];
     
     for (NSString *key in [self.headers allKeys]) {
-        [self.urlRequest setValue:[self.headers valueForKey:key] forHTTPHeaderField:key];
+        [request setValue:[self.headers valueForKey:key] forHTTPHeaderField:key];
     }
+    return request;
 }
 
 - (NSString *)parseStringWithData:(NSData *)data textEncoding:(NSString *)encoding{
     NSStringEncoding finalencoding = CFStringConvertEncodingToNSStringEncoding(CFStringConvertIANACharSetNameToEncoding((CFStringRef)encoding));
-    NSString *body = [[[NSString alloc] initWithData:data encoding:finalencoding] autorelease];
+    NSString *body = [[NSString alloc] initWithData:data encoding:finalencoding];
     return body;
 }
 
